@@ -9,21 +9,16 @@ public class vacationCalculationTest {
 
     @ParameterizedTest
     @CsvSource({
-            "10000,3000,0,3",
-            "60000,5000,0,7"
+            "10000,3000,0,6",
+            "60000,5000,0,8"
     })
 // @CsvFileSource(files = "src/test/resources/Dannue1.csv")
-    public void numberOfMonthSatLowCost(int income, int expense, int threshold, int expected) {
+    public void numberOfMonthSatLowCost(int income, int expense, int money, int expected) {
         vacationСalculation service = new vacationСalculation();
-        // переменные подставили в public void
-        // подготавливаем данные:
-        //int income = 10_000;
-        //int expense = 3_000;
-        //int threshold = 0;
-        //int expected = 3;
+
 
         // вызываем целевой метод:
-        int actual = service.calc(income, expense, threshold);
+        int actual = service.calc(income, expense, money);
 
         // производим проверку (сравниваем ожидаемый и фактический):
         Assertions.assertEquals(expected, actual);
